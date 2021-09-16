@@ -13,6 +13,7 @@ import net.mamoe.mirai.event.Listener;
 import net.mamoe.mirai.event.events.GroupMessageEvent;
 import net.mamoe.mirai.message.data.*;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.net.*;
 
@@ -69,7 +70,7 @@ public final class Plugin extends JavaPlugin {
                 is = connection.getInputStream();
                 br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
                 StringBuilder sb = new StringBuilder();
-                String tmp = null;
+                String tmp;
                 while ((tmp = br.readLine()) != null) {
                     sb.append(tmp);
                     sb.append("\r\n");
@@ -131,6 +132,7 @@ public final class Plugin extends JavaPlugin {
         return returnString.toString();
     }
 
+    @Nullable
     private Settings checkSettings() {
         boolean returnValue = true;
 
